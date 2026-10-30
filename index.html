@@ -230,8 +230,8 @@ async function sendChat(){
   const input=document.getElementById('chatInput');
   const q=input.value.trim();
   if(!q || besenChatBusy) return;
-  if(BESEN_AI_ENDPOINT.includes('')){
-    addChat('🌱 Bé Sen','Cô cần thay BESEN_AI_ENDPOINT bằng địa chỉ Worker sau khi triển khai Cloudflare.');
+  if(!BESEN_AI_ENDPOINT || BESEN_AI_ENDPOINT.includes('YOUR_WORKER_URL')){
+    addChat('🌱 Bé Sen','Địa chỉ Cloudflare Worker chưa được cấu hình. Vui lòng kiểm tra BESEN_AI_ENDPOINT.');
     return;
   }
   addChat('Bạn',q); input.value=''; besenChatBusy=true;
